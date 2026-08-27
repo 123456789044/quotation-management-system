@@ -1,0 +1,37 @@
+# ==============================
+# Frontend
+# ==============================
+
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/.env
+frontend/.env.*
+frontend/*.local
+
+# ==============================
+# Backend - Spring Boot / Maven
+# ==============================
+
+backend/target/
+backend/.settings/
+backend/.classpath
+backend/.project
+backend/*.log
+backend/.env
+backend/.env.*
+
+# ==============================
+# IDE
+# ==============================
+
+.vscode/
+.idea/
+*.iml
+
+# ==============================
+# OS
+# ==============================
+
+.DS_Store
+Thumbs.db
