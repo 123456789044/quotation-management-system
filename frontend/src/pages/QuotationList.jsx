@@ -2,11 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
-import {
-  getQuotations,
-  deleteQuotation,
-} from "../api/quotationApi";
-
+import { getQuotations, deleteQuotation } from "../api/QuotationApi";
 function QuotationList() {
   const navigate = useNavigate();
 

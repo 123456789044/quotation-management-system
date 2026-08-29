@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
-import { getCustomers } from "../api/customerApi";
-import { createQuotation } from "../api/quotationApi";
-import { createQuotationItem } from "../api/quotationItemApi";
+import { getCustomers } from "../api/CustomerApi";
+import { createQuotation } from "../api/QuotationApi";
+import { createQuotationItem } from "../api/QuotationItemApi";
 
 function CreateQuotation() {
   const navigate = useNavigate();

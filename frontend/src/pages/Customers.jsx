@@ -1,10 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  getCustomers,
-  createCustomer,
-  deleteCustomer,
-} from "../api/customerApi";
-
+import { getCustomers, createCustomer, deleteCustomer } from "../api/CustomerApi";
 function Customers() {
   const [customers, setCustomers] = useState([]);
   const [form, setForm] = useState({
