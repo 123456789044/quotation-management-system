@@ -7,6 +7,7 @@ import CreateQuotation from "./pages/CreateQuotation";
 import QuotationList from "./pages/QuotationList";
 import ViewQuotation from "./pages/ViewQuotation";
 import Customers from "./pages/Customers";
+import Register from "./pages/Register";
 
 import ProtectedRoute from "./ProtectedRoute";
 
@@ -22,7 +23,7 @@ function App() {
           path="/login"
           element={<Login />}
         />
-
+<Route path="/register" element={<Register />} />
 
         {/* Dashboard */}
 

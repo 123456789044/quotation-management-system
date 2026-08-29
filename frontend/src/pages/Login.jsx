@@ -7,18 +7,46 @@ function Login() {
 
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
   e.preventDefault();
 
-  if (email && password) {
-    localStorage.setItem("isLoggedIn", "true");
-
-    navigate("/dashboard");
-  } else {
+  if (!email || !password) {
     alert("Please enter email and password");
+    return;
+  }
+
+  try {
+    const response = await fetch(
+      "http://localhost:8081/api/auth/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      }
+    );
+
+    if (response.ok) {
+      const user = await response.json();
+
+      localStorage.setItem("isLoggedIn", "true");
+      localStorage.setItem("user", JSON.stringify(user));
+
+      navigate("/dashboard");
+    } else {
+      const message = await response.text();
+      alert(message);
+    }
+
+  } catch (error) {
+    console.error(error);
+    alert("Unable to connect to server");
   }
 };
-
   return (
     <div className="login-page">
 
@@ -130,11 +158,16 @@ function Login() {
           </form>
 
           <div className="login-footer">
-            <p>
-              Don't have an account?
-              <span> Contact administrator</span>
-            </p>
-          </div>
+  <p>
+    Don't have an account?{" "}
+    <span
+      onClick={() => navigate("/register")}
+      style={{ cursor: "pointer" }}
+    >
+      Create Account
+    </span>
+  </p>
+</div>
 
         </div>
 
